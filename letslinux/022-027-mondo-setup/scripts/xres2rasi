@@ -1,0 +1,25 @@
+#!/bin/bash
+
+rasi_file="$HOME/.config/rofi/globals.rasi"
+
+resources="accent bg1 bg2 fg1 fg2 redish"
+
+for r in $resources; do
+  xrvar=$(xrdb -query | awk -v reso=$r '$1~reso{print $2}')
+  sed -i --follow-symlinks "/$r:/c\\$r: $xrvar\;" "$rasi_file"
+done
+
+fnt=$(xrdb -query | awk '/font1/{print $2}')
+fntsz=$(xrdb -query | awk '/fontsz1/{print $2}')
+sed -i --follow-symlinks "/font1:/c\font1: \"$fnt $fntsz\"\;" "$rasi_file"
+
+
+
+# accent: #458588;
+# bg1: #FFFFFF;
+# bg2: #FFFFFF;
+# fg1: #FFFFFF;
+# fg2: #FFFFFF;
+# redish: #FFFFFF;
+# font1: #FFFFFF;
+# fontsz1: #FFFFFF;

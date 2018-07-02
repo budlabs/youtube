@@ -1,0 +1,21 @@
+*.foreground:    fg
+*.background:    bg 
+*.cursorColor:   fg
+*.cursorColor2:  bg
+
+*.color0:        blk
+*.color1:        red
+*.color2:        grn
+*.color3:        ylw
+*.color4:        blu
+*.color5:        mag
+*.color6:        cyn
+*.color7:        wht
+*.color8:        blk2
+*.color9:        red2
+*.color10:       grn2
+*.color11:       ylw2
+*.color12:       blu2
+*.color13:       mag2
+*.color14:       cyn2
+*.color15:       wht2

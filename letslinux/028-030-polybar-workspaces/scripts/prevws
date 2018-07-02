@@ -1,0 +1,11 @@
+#!/bin/bash
+
+awkop=($(i3-msg -t get_workspaces | awk -F: -v RS=',' '
+  $1~"num"{cnm=$2;nws++}
+  $1~"focused" && $2=="true" {printf cnm " "}
+  END{print nws}
+'))
+
+((${awkop[1]}<2)) \
+  && i3-msg workspace $((${awkop[0]}+1)) \
+  || i3-msg workspace back_and_forth

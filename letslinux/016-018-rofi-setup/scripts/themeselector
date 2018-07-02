@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xres_file="$HOME/.Xresources"
+
+selected=$(ls "$HOME/.xfiles/themes" | rofi -dmenu -theme bmenu -p "select theme: ")
+[[ ! -f "$HOME/.xfiles/themes/$selected" ]] && exit
+
+sed -i --follow-symlinks "/\#include \"\.xfiles\/themes\//c\\#include \"\.xfiles\/themes\/$selected\"" "$xres_file"
+reloader

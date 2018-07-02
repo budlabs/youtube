@@ -1,0 +1,36 @@
+mondo.colors.fg1:         fg
+mondo.colors.fg2:         base01
+mondo.colors.bg1:         bg
+mondo.colors.bg2:         base03
+
+mondo.colors.dark1:       base03
+mondo.colors.light1:      base1
+
+mondo.colors.act1:        blu
+mondo.colors.act2:        base3
+mondo.colors.act3:        base01
+
+mondo.colors.ina1:        cyn
+mondo.colors.ina2:        fg
+mondo.colors.ina3:        base01
+
+mondo.colors.sel1:     base01
+mondo.colors.sel2:     base03
+
+!! GUI theme
+#define cursortheme     Adwaita  
+#define icontheme       ePapirus  
+#define gtktheme        blaquemagick  
+
+!! Terminal fonts
+#define terminalfontface1 monospace
+#define terminalfontsize1 12
+#define terminalfontface2 monospace
+#define terminalfontsize2 18
+
+!! GUI fonts
+#define guifontface1      sans
+#define guifontsize1      12
+#define guifontface2      sans
+#define guifontsize2      18
+

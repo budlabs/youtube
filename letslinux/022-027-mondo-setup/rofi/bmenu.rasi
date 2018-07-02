@@ -1,0 +1,50 @@
+/**
+ * ROFI Color theme
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+
+@import "globals.rasi"
+
+* {
+    background-color:      @fg1;
+    border-color:          @fg1;
+    text-color:            @bg1;
+    font:                  @font1;
+}
+
+configuration {
+}
+
+#window {
+    anchor:     north;
+    location:   north;
+    width:      100%;
+    padding:    4px;
+    children:   [ horibox ];
+}
+
+#horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
+}
+
+#listview {
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}
+
+#entry {
+    expand:     false;
+    width:      10em;
+}
+
+#element {
+    padding: 0px 2px;
+}
+#element selected {
+    background-color: @bg1;
+    text-color: @accent;
+}
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dunstDir="$HOME/.config/dunst"
+
+(
+  cd "$dunstDir" || exit 1
+
+  cat dunst-theme dunst-settings > dunstrc
+)

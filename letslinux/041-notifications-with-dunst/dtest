@@ -1,0 +1,22 @@
+#!/bin/bash
+
+pidof dunst && killall dunst
+dunst &
+
+notify-send "message one
+ just for testing"
+
+notify-send "word1" word2
+
+
+msg1="$(printf "%s hello %s" first second)"
+notify-send "$msg1"
+
+msg="<span foreground='#FFE000' font='Hack 42'> Help</span> kappa"
+
+notify-send -u low -a "anything" "$msg"
+notify-send -u critical "message two"
+notify-send "message three"
+notify-send "message four"
+notify-send "message five"
+notify-send "message six"

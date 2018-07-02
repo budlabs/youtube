@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# kill the container with the id of an
+# new empty container.
+
+i3-msg -q [con_id=$(
+    i3-msg open | 
+    awk -v RS=: -F} 'NR==3{print $1}'
+)] kill

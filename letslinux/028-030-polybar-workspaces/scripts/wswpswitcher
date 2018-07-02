@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cws="$1"
+
+default_wp="/home/bud/.budlock/morning-blad.png"
+
+awp[1]=/home/bud/.budlock/nuclearcontrol.png
+awp[2]=/home/bud/.budlock/ormbunke.png
+awp[3]=/home/bud/.budlock/painted-japanese-owl.png
+
+cwp=$(i3var get wswp${cws})
+
+[[ -n $cwp ]] \
+  && setwp "$cwp" \
+  || setwp "${awp[$cws]:-$default_wp}"

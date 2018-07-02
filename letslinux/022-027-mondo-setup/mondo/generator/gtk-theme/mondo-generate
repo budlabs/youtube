@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This script is executed every time a theme is generated.
+# Each generator can have it's own mondo-generate script.
+
+# The default syntax is bash, but by changing the shebang,
+# one could use another language (f.i. perl or python).
+
+# $1 is equal to: $MONDO_DIR/generator/TYPE/THEME[.extensions]
+
+# If this script is not needed, this file can safely be removed.
+# (removing the file, will improve executioni speed)
+
+# this_dir="${1%/*}"
+this_file="${1##*/}"
+# this_theme="${this_file%.*}"
+
+# To source the settings file one could use this:
+# source "${this_dir}/mondo-settings"
+
+gtk_dir="/home/bud/box/Dropbox/etc/numix-solarized-gtk-theme"
+
+generategtk(){
+  cd "$gtk_dir" || exit 
+  gksudo make THEME=$this_file install
+}
+
+cp -f "$1" "${gtk_dir}/${this_file}.colors"
+(generategtk)

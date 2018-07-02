@@ -1,0 +1,7 @@
+#!/bin/bash
+
+srch="$1"
+
+ps -ef | awk -v this="$0" -v search="$srch" '{
+  if($NF~search && $0!~this){print $2}
+}'

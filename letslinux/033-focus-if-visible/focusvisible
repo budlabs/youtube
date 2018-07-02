@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while getopts :c:i: option; do
+  case "${option}" in
+    c|i ) target=$option arg=${OPTARG};;
+  esac
+done
+
+conid=$(getvisible -$target "$arg")
+
+[[ -z $conid ]] && exit 1
+
+i3-msg -q [con_id=$conid] focus
+
+

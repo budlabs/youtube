@@ -1,0 +1,7 @@
+#!/bin/bash
+
+xrdb -merge -I$HOME ~/.Xresources
+i3-msg restart
+polybar-msg cmd restart
+xres2rasi
+

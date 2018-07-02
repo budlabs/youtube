@@ -1,0 +1,11 @@
+* {
+accent: %%colors.act1%%;
+bg1: %%colors.bg1%%;
+bg2: %%colors.bg2%%;
+fg1: %%colors.fg1%%;
+fg2: %%colors.fg2%%;
+redish: %%colors.redish%%;
+font1: "%%gui.fontface1%% %%gui.fontsize1%%";
+}
+
+// syntax:ssDslash

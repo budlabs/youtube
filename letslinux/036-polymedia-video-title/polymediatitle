@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# opFile - File to write the status too.
+opFile="$HOME/polymediaoutput"
+
+# if no arguments are passed to the script, use the
+# output from cmus-remote -Q to create trackinfo variables
+if [[ $# -eq 0 ]]; then
+
+  eval "$(cmus-remote -Q | awk '
+
+    $1=="status" {print "_status=\"" $2 "\""}
+
+    $1=="file" {
+      $1=""
+      sub("^[ ]*","",$0)
+      print "_file=\"" $0 "\""
+    }
+
+    $1=="tag" && $2=="artist" {
+      $1=$2=""
+      sub("^[ ]*","",$0)
+      print "_artist=\"" $0 "\""
+    }
+
+    $1=="tag" && $2=="title" {
+      $1=$2=""
+      sub("^[ ]*","",$0)
+      print "_title=\"" $0 "\""}
+
+  ')"
+
+fi
+
+# if arguments are passed to the script use them
+# to create trackinfo variables
+while test $# -ge 2
+do
+  eval _$1='$2'
+  shift
+  shift
+done
+
+# if status is from mpv, the $_status variable is
+# either yes or no, if it is mpv, see if cmus is
+# playing, if it is, pause cmus playback.
+if [[ $_status =~ yes|no ]]; then
+  cmus_status="$(cmus-remote -Q | awk '
+    $1=="status" {print $2;exit}
+  ')"
+
+  if [[ $cmus_status = playing ]]; then
+
+    cmus-remote --pause
+
+    # when cmus gets paused it will trigger this
+    # script with cmus status. By refocusing mpv
+    # i make sure that mpv status is displayed.
+    refocus
+    i3-msg -q [class=mpv] focus
+
+  fi
+fi
+
+# use different colors depending on the status
+[[ ! $_status =~ playing|no ]] \
+  && prefix="%{F$(
+    xrdb -query | awk '$1~"mondo.colors.act3"{print $2}')}" \
+  || prefix="%{F-}"
+
+# if $_title variable is not empty, the track is
+# tagged, otherwise use the filename for status
+if [[ -n $_title ]]; then
+  op="$_artist - $_title"
+else
+  # trim the directory and extension from the filename
+  op="${_file##*/}"
+  op="${op%.*}"
+fi
+
+
+op="${prefix}${op}%{F-}"
+echo "$op" > "$opFile"
+
+sleep 0.2
+
+polybar-msg hook mediatitle 1

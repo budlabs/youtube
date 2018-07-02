@@ -1,0 +1,16 @@
+[colors]
+char_untouched_fg=#4b575a
+char_untouched_bg=#252323
+char_wrong_bg=#D4665D
+char_wrong_fg=#babaa9
+char_correct_fg=#6e776e
+char_correct_bg=#a4a493
+char_retouched_fg=#61854e
+char_retouched_bg=#252323
+cursor_blink_fg=#babaa9
+cursor_blink_bg=#4b575a
+cursor_unblink_fg=#babaa9
+cursor_unblink_bg=#4b575a
+text_intro_fg=#4b575a
+text_intro_bg=#252323
+

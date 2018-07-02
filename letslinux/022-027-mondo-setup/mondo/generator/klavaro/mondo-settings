@@ -1,0 +1,19 @@
+
+# The content of this file is sourced by mondo.
+# The syntax is bash. But it is not recommended to
+# add any script functions other then variable declaration
+# in this file.
+
+# If ext is set, it will be appended as an extension
+# when files are generated.
+ext=""
+
+# The default format is "hex". If format is set to
+# rgb, colors will be translated to RGB format.
+# Example: #FF00FF -> 255,255,255
+format="hex"
+
+# target can be an (absolute) file path to where
+# the file will be copied when a theme is applied.
+
+# target="/home/bud/.config/klavaro/preferences.ini"

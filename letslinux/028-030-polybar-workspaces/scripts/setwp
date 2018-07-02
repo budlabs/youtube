@@ -1,0 +1,12 @@
+#!/bin/bash
+
+trgwp="$1"
+
+cws=$(i3-msg -t get_workspaces | awk -F: -v RS=',' '
+  $1~"num"{cnm=$2}
+  $1~"focused" && $2=="true" {printf cnm}
+')
+
+i3var set "wswp${cws}" "$trgwp"
+
+hsetroot -fill "$trgwp"

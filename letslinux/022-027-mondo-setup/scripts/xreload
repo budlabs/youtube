@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xrdb -load ~/.Xresources
+kill -1 $(pidof urxvtd)

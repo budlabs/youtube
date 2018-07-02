@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# This script is executed before anything else, 
+# when mondo is executed with the apply option (-a).
+
+# The intension of this script is to let you prepare
+# your environment before applying a new theme.
+
+# For instance one might want to kill certain processes
+# before applying, since some programs might overwrite
+# the new settings with the old. 
+
+killall klavaro
+

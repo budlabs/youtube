@@ -1,0 +1,103 @@
+#define fg #bdae93
+#define bg #252323
+
+#define base00 #252323
+#define base01 #8f3f71
+#define base02 #427b58
+#define base03 #32302F
+
+#define base0 #b57614
+#define base1 #bdae93
+#define base2 #ebdbb2
+#define base3 #f9f5d7
+
+#define red #cc241d
+#define ora #9d0006
+#define grn #98971a
+#define ylw #d79921
+#define blu #458588
+#define mag #b16286
+#define vio #076678
+#define cyn #689d6a
+
+mondo.colors.fg1:         fg
+mondo.colors.fg2:         base2
+mondo.colors.bg1:         bg
+mondo.colors.bg2:         base03
+
+mondo.colors.dark1:       base00
+mondo.colors.light1:      base3
+
+mondo.colors.act1:        blu
+mondo.colors.act2:        base3
+mondo.colors.act3:        base00
+
+mondo.colors.ina1:        base03
+mondo.colors.ina2:        fg
+mondo.colors.ina3:        base2
+
+mondo.colors.sel1:     base00
+mondo.colors.sel2:     base3
+
+!! GUI theme
+#define cursortheme     Adwaita  
+#define icontheme       ePapirus
+#define gtktheme        buddybud 
+
+!! Terminal fonts
+#define terminalfontface1 FixedFixedsys
+#define terminalfontsize1 12
+#define terminalfontface2 monospace
+#define terminalfontsize2 18
+
+!! GUI fonts
+#define guifontface1      FixedFixedsys
+#define guifontsize1      12
+#define guifontface2      sans
+#define guifontsize2      18
+
+mondo.terminal.fontface1: terminalfontface1
+mondo.terminal.fontface2: terminalfontface2
+mondo.terminal.fontsize1: terminalfontsize1
+mondo.terminal.fontsize2: terminalfontsize2
+
+mondo.colors.yellow:      ylw
+mondo.colors.orange:      ora
+mondo.colors.redish:      red
+mondo.colors.magenta:     mag
+mondo.colors.violet:      vio
+mondo.colors.blue:        blu
+mondo.colors.cyan:        cyn
+mondo.colors.green:       grn
+
+mondo.gui.cursor:         cursortheme
+mondo.gui.icon:           icontheme
+mondo.gui.gtk:            gtktheme
+
+mondo.gui.fontface1:      guifontface1
+mondo.gui.fontface2:      guifontface2
+mondo.gui.fontsize1:      guifontsize1
+mondo.gui.fontsize2:      guifontsize2
+
+*.foreground:             fg
+*.background:             bg 
+*.cursorColor:            fg
+*.cursorColor2:           bg
+*.border:                 bg
+
+*.color0:                 bg
+*.color8:                 base0
+*.color1:                 red
+*.color9:                 ora
+*.color2:                 grn
+*.color10:                base2
+*.color3:                 ylw
+*.color11:                base3
+*.color4:                 blu
+*.color12:                vio
+*.color5:                 mag
+*.color13:                base01
+*.color6:                 cyn
+*.color14:                base02
+*.color7:                 fg
+*.color15:                base03

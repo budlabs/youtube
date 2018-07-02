@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# This script parses the output of the command
+# pactl list sink-inputs
+# and echo's the name of the active player
+
+# If the player is "Corked" it is active but not 
+# playing any sound (probably paused)
+
+# this script depends on the script getvisible
+# https://github.com/budRich/letslinux/tree/master/033-focus-if-visible
+# focus_if visible: https://youtu.be/0ZkcMAhk-9k
+
+declare -A players
+
+eval "$(pactl list sink-inputs | awk '
+  $1=="Corked:" {currentCork=$2}
+  $1=="application.process.binary"{
+    # only echo players in the list below
+    if($NF~/mpv|cmus|ncmpcpp|spotify/)
+      print "players[" $NF "]=" currentCork
+  }
+')"
+
+
+# target player priority list:
+# 1. The player that emits sound
+# 2. mpv if it is visible
+# 3. cmus if it is running
+# 4. mpv if it is running
+
+for k in "${!players[@]}"; do
+  # if the player isn't corked it is emitting sound
+  # and is set as target (1).
+  [[ ${players[$k]} = no ]] && target=$k
+done
+
+if [[ -z $target ]]; then
+
+  if [[ -n $(getvisible -c mpv) ]]; then
+    target=mpv
+  elif [[ -n $(pidof cmus) ]]; then
+    target=cmus
+  elif [[ -n $(pidof mpv) ]]; then
+    target=mpv
+  else
+    target=NA
+  fi
+
+fi
+
+echo $target
+
+
+
+

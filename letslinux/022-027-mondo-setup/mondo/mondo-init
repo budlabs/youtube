@@ -1,0 +1,29 @@
+mondo.terminal.fontface1: terminalfontface1
+mondo.terminal.fontface2: terminalfontface2
+mondo.terminal.fontsize1: terminalfontsize1
+mondo.terminal.fontsize2: terminalfontsize2
+
+mondo.colors.yellow:      ylw
+mondo.colors.orange:      ora
+mondo.colors.redish:      red
+mondo.colors.magenta:     mag
+mondo.colors.violet:      vio
+mondo.colors.blue:        blu
+mondo.colors.cyan:        cyn
+mondo.colors.green:       grn
+
+mondo.gui.cursor:         cursortheme
+mondo.gui.icon:           icontheme
+mondo.gui.gtk:            gtktheme
+
+mondo.gui.fontface1:      guifontface1
+mondo.gui.fontface2:      guifontface2
+mondo.gui.fontsize1:      guifontsize1
+mondo.gui.fontsize2:      guifontsize2
+
+*.foreground:             fg
+*.background:             bg 
+*.cursorColor:            fg
+*.cursorColor2:           bg
+*.border:                 bg
+

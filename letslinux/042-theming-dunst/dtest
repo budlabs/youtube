@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pidof dunst && killall dunst
+dunst &
+
+notify-send -u low "anything" 
+notify-send -u critical "message two"
+notify-send "message three"

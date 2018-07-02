@@ -1,0 +1,28 @@
+#!/bin/bash
+
+player=$(whosplaying)
+
+case $1 in
+
+  toggle )
+    [[ $player = cmus ]] && cmus-remote --pause
+    [[ $player = mpv  ]] && echo "pause" > /tmp/mp_pipe
+  ;;
+
+  next ) 
+    [[ $player = cmus ]] && cmus-remote --next
+    [[ $player = mpv  ]] && echo "playlist-next" > /tmp/mp_pipe
+  ;;
+
+  prev )
+    [[ $player = cmus ]] && cmus-remote --prev
+    [[ $player = mpv  ]] && echo "playlist-prev" > /tmp/mp_pipe
+  ;;
+
+  seek )
+    [[ $player = cmus ]] && cmus-remote --seek $2
+    [[ $player = mpv  ]] && echo "seek $2" > /tmp/mp_pipe
+  ;;
+
+esac
+

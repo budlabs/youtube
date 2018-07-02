@@ -1,0 +1,20 @@
+#!/bin/bash
+
+dunstDir="$HOME/.config/dunst"
+
+targetLayout=$1
+
+[[ -f $dunstDir/layouts/$targetLayout ]] \
+  || targetLayout=$(awk -F':' '
+    $1 == "# layout" {print $2; exit}' "$dunstDir/dunstrc")
+
+(
+  cd "$dunstDir" || exit 1
+  {
+    toilet -f 3d.flf dunstrc | awk '{print "# " $0}'
+    echo "# layout:$targetLayout"
+    echo
+    cat dunst-theme "layouts/$targetLayout" dunst-settings
+    
+  } > dunstrc
+)

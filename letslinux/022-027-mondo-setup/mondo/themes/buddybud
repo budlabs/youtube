@@ -1,0 +1,58 @@
+#define fg #bdae93
+#define bg #252323
+
+#define base00 #252323
+#define base01 #8f3f71
+#define base02 #427b58
+#define base03 #32302F
+
+#define base0 #b57614
+#define base1 #bdae93
+#define base2 #ebdbb2
+#define base3 #f9f5d7
+
+#define red #cc241d
+#define ora #9d0006
+#define grn #98971a
+#define ylw #d79921
+#define blu #458588
+#define mag #b16286
+#define vio #076678
+#define cyn #689d6a
+
+mondo.colors.fg1:         fg
+mondo.colors.fg2:         base2
+mondo.colors.bg1:         bg
+mondo.colors.bg2:         base03
+
+mondo.colors.dark1:       base00
+mondo.colors.light1:      base3
+
+mondo.colors.act1:        blu
+mondo.colors.act2:        base3
+mondo.colors.act3:        base00
+
+mondo.colors.ina1:        base03
+mondo.colors.ina2:        fg
+mondo.colors.ina3:        base2
+
+mondo.colors.sel1:     base00
+mondo.colors.sel2:     base3
+
+!! GUI theme
+#define cursortheme     Adwaita  
+#define icontheme       ePapirus
+#define gtktheme        buddybud 
+
+!! Terminal fonts
+#define terminalfontface1 monospace
+#define terminalfontsize1 12
+#define terminalfontface2 monospace
+#define terminalfontsize2 18
+
+!! GUI fonts
+#define guifontface1      monospace
+#define guifontsize1      12
+#define guifontface2      sans
+#define guifontsize2      18
+

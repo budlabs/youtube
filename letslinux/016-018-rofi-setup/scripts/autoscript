@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SCRIPT_FOLDER="$HOME/scripts"
+SCRIPT_FILE="$SCRIPT_FOLDER/$1"
+
+if [[ -f $SCRIPT_FILE ]]; then
+  subl $SCRIPT_FILE
+else
+  echo '#!/bin/bash' > $SCRIPT_FILE
+  chmod +x $SCRIPT_FILE
+  subl $SCRIPT_FILE
+fi
+
+
+

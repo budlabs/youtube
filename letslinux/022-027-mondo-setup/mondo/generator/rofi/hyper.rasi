@@ -1,0 +1,11 @@
+* {
+accent: #254f64;
+bg1: #15152f;
+bg2: #4d7385;
+fg1: #c5a9a7;
+fg2: #666666;
+redish: #546039;
+font1: "FixedFixedsys 12";
+}
+
+// syntax:ssDslash

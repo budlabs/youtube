@@ -1,0 +1,30 @@
+#!/bin/bash
+
+opFile="$HOME/polymediaoutput"
+
+while [[ $# -ge 2 ]]
+do
+  eval _$1='$2'
+  shift
+  shift
+done
+
+[[ $_status != playing ]] \
+  && prefix="%{F$(
+    xrdb -query | awk '$1~"colors.act3"{print $2}')}" \
+  || prefix="%{F-}"
+
+if [[ -n $_title ]]; then
+  op="$_artist - $_title"
+else
+  op="${_file##*/}"
+  op="${op%.*}"
+fi
+
+op="${prefix}${op}%{F-}"
+
+echo "$op" > "$opFile"
+
+sleep 0.2
+
+polybar-msg hook mediatitle 1

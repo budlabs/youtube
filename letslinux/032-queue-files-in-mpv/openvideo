@@ -1,0 +1,12 @@
+#!/bin/bash
+
+targetVideo="$1"
+
+if [[ -n $(i3get -c mpv) ]]; then
+  echo "loadfile \"${targetVideo}\" append-play" > /tmp/mp_pipe
+
+else
+  [[ -f /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
+  mpv  --force-window=yes --input-file="/tmp/mp_pipe" "$targetVideo" &
+fi
+

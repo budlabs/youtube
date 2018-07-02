@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while getopts :c:i: option; do
+  case "${option}" in
+    c|i ) target=$option arg=${OPTARG};;
+  esac
+done
+
+found="$(i3viswiz -$target | \
+  awk -v argument="$arg" '$NF==argument{print $2;exit}')"
+
+[[ -z $found ]] && exit 1 || echo "$found"

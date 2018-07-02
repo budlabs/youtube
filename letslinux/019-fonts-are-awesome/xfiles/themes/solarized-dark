@@ -1,0 +1,25 @@
+!! solarized dark
+!! http://ethanschoonover.com/solarized
+!! https://github.com/solarized/xresources/blob/master/Xresources.dark
+
+#define bg                 #002b36
+#define fg                 #839496
+
+#define blk                #073642
+#define blk2               #002d38
+#define red                #dc322f
+#define red2               #cb4b16
+#define grn                #859900
+#define grn2               #586e75
+!#define ylw                #FF0000
+#define ylw                #b58900
+#define ylw2               #657b83
+#define blu                #268bd2
+#define blu2               #839496
+#define mag                #d33682
+#define mag2               #6c71c4
+#define cyn                #2aa198
+#define cyn2               #93a1a1
+#define wht                #eee8d5
+#define wht2               #fdf6e3
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+names[0]=""
+names[1]=""
+names[2]=""
+
+awkop=($(i3-msg -t get_workspaces | awk -F: -v RS=',' '
+  $1~"num"{cnm=$2;nws++}
+  $1~"focused" && $2=="true" {printf cnm " "}
+  END{print nws}
+'))
+
+echo "${names[${awkop[0]}]:-${awkop[0]}} ${awkop[1]}"
+
+
+# [{"num":1,"name":"1","visible":true,"focused":true
+# ,"rect":{"x":0,"y":0,"width":1600,"height":900}
+# ,"output":"LVDS1","urgent":false},{"num":2,"name":"2"
+# ,"visible":false,"focused":false,"rect":{"x":0,"y":0
+# ,"width":1600,"height":900},"output":"LVDS1"
+# ,"urgent":false},{"num":3,"name":"3","visible":false
+# ,"focused":false,"rect":{"x":0,"y":0,"width":1600
+# ,"height":900},"output":"LVDS1","urgent":false}]

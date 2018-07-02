@@ -1,0 +1,306 @@
+
+#    ##  ####                              #### ##        
+#   ░░  #░░░ #                            ░##░ ░░   ##### 
+#    ##░    ░#  #####   ######  #######  ###### ## ##░░░##
+#   ░##   ###  ##░░░## ##░░░░##░░##░░░##░░░##░ ░##░##  ░##
+#   ░##  ░░░ #░##  ░░ ░##   ░## ░##  ░##  ░##  ░##░░######
+#   ░## #   ░#░##   ##░##   ░## ░##  ░##  ░##  ░## ░░░░░##
+#   ░##░ #### ░░##### ░░######  ###  ░##  ░##  ░##  ##### 
+#   ░░  ░░░░   ░░░░░   ░░░░░░  ░░░   ░░   ░░   ░░  ░░░░░  
+#
+#   i3config file used in the Let's linux videos
+#   #010: polybar setup
+
+# >> Initialization
+
+set $mod   Mod4
+set $super bindsym Mod4
+set $exe   exec --no-startup-id exec
+set $fyra  exec --no-startup-id exec i3fyra
+
+set $dirl  h
+set $dird  j
+set $diru  k
+set $dirr  l
+
+floating_modifier Mod1
+
+focus_follows_mouse no
+
+# OBS! set this to the absolute path of YOUR home folder
+set $HOME /home/bud
+
+
+# >> Panic
+
+$super+Shift+q kill
+$super+Shift+c reload
+$super+Shift+r $exe $HOME/scripts/reloader
+# $super+Shift+r restart
+$super+Shift+e exec --no-startup-id \
+  "i3-nagbar -t warning -m 'You pressed the exit \
+  shortcut. Do you really want to exit i3? This \
+  will end your X session.' -b 'Yes, exit i3' \
+  'i3-msg exit'"
+
+$super+Mod1+Return $exe urxvtc
+
+# >> Terminal
+
+$super+Return $exe i3run -i floatterm -s -e 'urxvtc -name floatterm'
+$super+Shift+Return $exe i3run -i cterm -e 'urxvtc -name cterm'
+$super+Control+Return $exe urxvtc -name tiledterm
+
+# >> Program launching
+
+$super+s $exe i3run -i sublime_text -e 'subl'
+$super+f $exe i3run -c Vivaldi-stable -e 'vivaldi-snapshot'
+$super+a $exe i3term irssi
+$super+d $exe i3term ncmpcpp
+
+$super+e $exe i3run -i filemanagerB -e \
+  'xfconf-query --channel thunar --property /last-view --create --type string --set ThunarIconView \
+   && thunar & xdotool set_window --classname filemanagerB `i3get -i thunar -r d -y`'
+
+$super+Control+e $exe i3run -i filemanagerD -e \
+  'xfconf-query --channel thunar --property /last-view --create --type string --set ThunarDetailsView \
+   && thunar & xdotool set_window --classname filemanagerD `i3get -i thunar -r d -y`'
+
+# $super+r $exe dmenu_run
+$super+r $exe rofi -show run -theme bmenu
+$super+y $exe autoscriptmenu
+$super+t $exe themeselector
+$super+i $exe fontawesome-menu -f /home/bud/rep/letslinux/ZZ-icons-are-awesome/rofi-fontawesome/fontawesome-menu/fa5-icon-list.txt -o '-i -columns 4'
+$super+w $exe prevws
+
+
+# >> Focus
+
+$super+$dirl  $fyra -f l
+$super+$dird  $fyra -f d
+$super+$diru  $fyra -f u
+$super+$dirr  $fyra -f r
+
+$super+space focus mode_toggle
+
+# >> Tabswitch
+
+$super+Tab       $fyra -t r
+$super+Shift+Tab $fyra -t l
+
+# >> Moving
+
+$super+Shift+$dirl  $fyra -m l
+$super+Shift+$dird  $fyra -m d
+$super+Shift+$diru  $fyra -m u
+$super+Shift+$dirr  $fyra -m r
+
+# >> Resizing
+
+$super+Control+$dirl $exe i3sizemode left
+$super+Control+$dird $exe i3sizemode down
+$super+Control+$diru $exe i3sizemode up
+$super+Control+$dirr $exe i3sizemode right
+
+mode "topleft" {
+        bindsym $dirl resize grow left 10 px or 10 ppt
+        bindsym $dirr resize shrink left 10 px or 10 ppt
+
+        bindsym $dird resize shrink up 10 px or 10 ppt
+        bindsym $diru resize grow up 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "topright" {
+        bindsym $dirl resize shrink right 10 px or 10 ppt
+        bindsym $dirr resize grow right 10 px or 10 ppt
+        
+        bindsym $dird resize shrink up 10 px or 10 ppt
+        bindsym $diru resize grow up 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "bottomleft" {
+        bindsym $dirl resize grow left 10 px or 10 ppt
+        bindsym $dirr resize shrink left 10 px or 10 ppt
+        
+        bindsym $dird resize grow down 10 px or 10 ppt
+        bindsym $diru resize shrink down 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "bottomright" {
+        bindsym $dirl resize shrink right 10 px or 10 ppt
+        bindsym $dirr resize grow right 10 px or 10 ppt
+        
+        bindsym $dird resize grow down 10 px or 10 ppt
+        bindsym $diru resize shrink down 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# >> Window manipulation
+
+$super+F11 fullscreen toggle
+$super+g layout toggle tabbed splith splitv
+
+# i3fyra -a = autolayout (floating toggle)
+$super+Shift+space $fyra -a
+
+# # >>> settings <<<
+
+# set variable with value from xresources:
+# set_from_resource $VARIABLE  XRESOURCE  DEFAULT_VALUE
+# use: xrdb -query   , to list available resources
+
+# set normal i3 variable:
+# set $VARIABLE VALUE
+
+set_from_resource $act  mondo.colors.act1  #FF00FF
+set_from_resource $ina  mondo.colors.ina1  #FF00FF
+set_from_resource $atx  mondo.colors.act2  #FF00FF
+set_from_resource $itx  mondo.colors.ina2  #FF00FF
+set_from_resource $urg  mondo.colors.redish  #FF00FF
+set_from_resource $utx  mondo.colors.ina2  #FF00FF
+set_from_resource $fnt  mondo.gui.fontface1  monospace
+set_from_resource $fsz  mondo.gui.fontsize1  32
+
+
+# resource definitions from .Xresources:
+# budstyle.accent: blu
+# budstyle.bg1: blk
+# budstyle.bg2: bg
+# budstyle.fg1: fg
+# budstyle.fg2: wht2
+# budstyle.redish : red
+# budstyle.font1 : fnt1
+# budstyle.fontsz1 : fntsz1
+
+# # >>> appearance <<<
+
+# with titlebar:
+for_window [class="^.*"] border normal 1
+
+# without titelbar:
+# for_window [class="^.*"] border pixel 1
+
+# font pango:FONT_NAME FONT_SIZE
+font pango:$fnt $fsz
+
+# widow Colors             border     bg        text       indic
+# client.focused           $act       $act      #FFFFFF    $act
+# client.focused_inactive  #0000FF    #0000FF   #00FF00    #0000FF
+# client.unfocused         #0000FF    #0000FF   #00FF00    #0000FF
+# client.urgent            #FF0000    #FF0000   #FF0000    #FF0000
+
+# widow Colors           border  bg     text    indic
+client.focused           $act    $act   $atx    $act
+client.focused_inactive  $ina    $ina   $itx    $ina
+client.unfocused         $ina    $ina   $itx    $ina
+client.urgent            $urg    $urg   $utx    $urg
+
+# >> Window rules
+
+for_window [class="^.*"] floating enabled
+# for_window [class="Lxappearance"] focus; $fyra -m C
+# for_window [class="Vivaldi-stable"] focus; $fyra -m A
+# for_window [instance="sublime_text"] focus; $fyra -m A
+# for_window [instance="cterm"] focus; $fyra -m C
+# for_window [instance="irssi"] focus; $fyra -m D
+# for_window [instance="filemanagerB"] focus; $fyra -m B
+# for_window [instance="filemanagerD"] focus; $fyra -m D
+# for_window [instance="ncmpcpp"] focus; $fyra -m B
+for_window [instance="tiledterm"] floating disabled
+
+# >> Autostart
+
+$exe $HOME/scripts/reloader
+$fyra -l 'AB=-450 BD=200 AC=-100'
+
+# >> Workspace management
+
+$super+1 workspace 1
+$super+2 workspace 2
+$super+3 workspace 3
+$super+4 workspace 4
+
+
+$super+Shift+1 move container to workspace 1
+$super+Shift+2 move container to workspace 2
+$super+Shift+3 move container to workspace 3
+$super+Shift+4 move container to workspace 4
+
+
+# >> Bar
+
+# bar {
+#   status_command i3status
+# }
+
+# >> disabled or replaced defaults
+
+# floating_modifier $mod
+# focus_follows_mouse yes
+
+# bindsym $mod+Return exec i3-sensible-terminal
+
+# bindsym $mod+d exec dmenu_run
+
+# bindsym $mod+h split h
+
+# bindsym $mod+v split v
+
+# bindsym $mod+f fullscreen toggle
+
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# bindsym $mod+a focus parent
+
+# bindsym $mod+Shift+space floating toggle
+
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
+
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
+
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+
+# mode "resize" {
+#         bindsym j resize shrink width 10 px or 10 ppt
+#         bindsym k resize grow height 10 px or 10 ppt
+#         bindsym l resize shrink height 10 px or 10 ppt
+#         bindsym semicolon resize grow width 10 px or 10 ppt
+#         bindsym Left resize shrink width 10 px or 10 ppt
+#         bindsym Down resize grow height 10 px or 10 ppt
+#         bindsym Up resize shrink height 10 px or 10 ppt
+#         bindsym Right resize grow width 10 px or 10 ppt
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+
+# bindsym $mod+r mode "resize"
+
+# syntax:ssHash
