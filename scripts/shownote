@@ -1,0 +1,529 @@
+#!/bin/bash
+
+# todo
+# move statics on draft change
+# related videos are a list of titles
+# don't move ll links to back up
+# 
+
+NAME="shownote"
+VERSION="0.001"
+AUTHOR="budRich"
+CONTACT='robstenklippa@gmail.com'
+CREATED="2018-07-04"
+UPDATED="2018-07-04"
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SRC_DIR="$( cd "$( dirname "$(readlink "${BASH_SOURCE[0]}")" )" && pwd )"
+
+BACKUP_DIR="$HOME/BACKUP"
+
+main(){
+  while getopts :vhn: option; do
+    case "${option}" in
+      n) action=newnote arg=${OPTARG} ;;
+      v) printf '%s\n' \
+           "$NAME - version: $VERSION" \
+           "updated: $UPDATED by $AUTHOR"
+         exit ;;
+      h|*) printinfo && exit ;;
+    esac
+  done
+
+  declare -A ayaml
+  selectedfile=""
+
+  lldir="$HOME/git/lab/youtube/letslinux"
+  lldraftdir="$HOME/src/hugo/budlabs/content/drafts/letslinux"
+  llpublicdir="$HOME/src/hugo/budlabs/content/letslinux"
+
+  actions=(
+    "clipboard"
+    "restore"
+    "publish"
+    "edit"
+    "new"
+    "update"
+    "apply"
+  )
+
+  playlists=($(
+    for d in "$SRC_DIR"/../* ; do
+      [[ ! -d $d ]] && continue
+      dn=${d##*/}
+      [[ $dn =~ scripts ]] && continue
+      echo $dn
+    done
+  ))
+
+  if [[ -n $action ]]; then
+    ${action}_${arg}
+  else
+      action="$(printf '%s\n' "${actions[@]}" | rofi -dmenu -p 'select action: ')"    
+      # arg="$(printf '%s\n' "${playlists[@]}" | rofi -dmenu -p 'select playlist: ')"
+      arg=letslinux
+
+      ( eval ${action}_${arg}  ;) \
+        || XERR "${action}_${arg} is not a command, goodbye"
+
+  fi
+}
+
+videoinfo(){
+  awk '
+    $1=="theme" {a["theme"]=$2}
+    $1=="icontheme" {a["icontheme"]=$2}
+    $1=="cursortheme" {a["cursortheme"]=$2}
+
+    END {
+      print "### video info:"
+
+      printf "%-18s | %s\n", "color scheme:", a["theme"]
+      print ":---|:---" 
+      printf "%-18s | %s\n", "fonts:", "Hack/fixedsys"
+      printf "%-18s | %s\n", "terminal emulator:", "URxvt"
+      printf "%-18s | %s\n", "figlet font:", "3d.flf, by **xero** "
+      printf "%-18s | %s\n", "filemanager:", "thunar"
+      printf "%-18s | %s\n", "icon theme:", a["icontheme"]
+      printf "%-18s | %s\n", "cursor theme:", a["cursortheme"]
+      printf "%-18s | numix (%s)\n", "gtk theme:", a["theme"]
+
+    }
+  ' ~/.config/mondo/themes/.current
+}
+
+clipboard_letslinux(){
+
+  whats=(
+    "id"
+    "youtube"
+    "github"
+    "name"
+  )
+
+  get_what="$(printf '%s\n' "${whats[@]}" \
+    | rofi -dmenu -p 'what do you want? ')"
+  
+  [[ -z $get_what ]] && exit 1
+
+  [[ ! -f $1 ]] \
+    && select_letslinux \
+    || selectedfile=$1
+
+  {
+    case "$get_what" in
+      id      ) printf "${ayaml[tube]}"  ;;
+      name    ) printf "${ayaml[title]}" ;;
+
+      youtube ) printf '%s/%s' \
+        'http://youtu.be' ${ayaml[tube]} 
+      ;;
+      
+      github  ) printf '%s/%03d-%s' \
+        'https://github.com/budlabs/youtube/tree/master/letslinux' \
+        ${ayaml[numba]} ${ayaml[hub]} 
+      ;;
+      
+      * ) exit 1 ;;
+    esac
+  } | xclip -selection clipboard
+  
+}
+
+apply_dots(){
+  for f in "${1}/"* ; do
+    [[ -d $f ]] && apply_dots "$f" || {
+      homf="${f/$trgdir\/dots/$HOME}"
+      bupf="${f/$trgdir\/dots/$BACKUP_DIR}"
+
+      [[ -f $homf ]] && [[ ! $(readlink $homf) =~ $lldir ]] && {
+        [[ ! -d "${bupf%/*}" ]] && mkdir -p "${bupf%/*}"
+        mv -f "$homf" "$bupf"
+      }
+
+      ln -fs "$f" "$homf"
+    }
+  done
+}
+
+restore_dots(){
+  for f in "${1}/"* ; do
+    [[ -d $f ]] && restore_dots "$f" || {
+      homf="${f/$trgdir\/dots/$HOME}"
+      bupf="${f/$trgdir\/dots/$BACKUP_DIR}"
+
+      [[ -f $bupf ]] && {
+        [[ ! -d "${homf%/*}" ]] && mkdir -p "${homf%/*}"
+        mv -f "$bupf" "$homf" 
+      } || rm -f "$homf"
+
+    }
+  done
+}
+
+clean_dirs(){
+  for d in "${1}"/* ; do [[ -d $d ]] && clean_dirs "$d" ; done
+  rmdir --ignore-fail-on-non-empty "$1"
+}
+
+restore_letslinux(){
+
+  [[ ! -f $1 ]] \
+    && select_letslinux \
+    || selectedfile=$1
+
+  trgdir="$lldir/${ayaml[numba]}-${ayaml[hub]}"
+
+  [[ -d $trgdir/scripts ]] && rm -rf ~/scripts
+
+  [[ -d $trgdir/dots ]] && {
+    shopt -s dotglob
+    restore_dots $trgdir/dots
+    clean_dirs $BACKUP_DIR
+  }
+}
+
+apply_letslinux(){
+
+  [[ ! -f $1 ]] \
+    && select_letslinux \
+    || selectedfile=$1
+
+  trgdir="$lldir/${ayaml[numba]}-${ayaml[hub]}"
+
+  [[ -d $trgdir/scripts ]] && {
+    rm -rf ~/scripts
+    ln -s $trgdir/scripts ~/scripts
+  }
+
+  [[ -d $trgdir/dots ]] && {
+    shopt -s dotglob
+    apply_dots $trgdir/dots
+  }
+
+}
+
+publish_letslinux(){
+  local postfile
+
+  [[ ! -f $1 ]] \
+    && select_letslinux drafts \
+    || selectedfile=$1
+
+  # update readme
+  update_letslinux "$selectedfile"
+
+  nextnumba="$(ls "$lldir" | awk -F'-' '
+    BEGIN {high=000}
+    $1 ~ /^[0-9]*$/ && $1 > high {high=$1}
+    END {printf "%03d", high + 1}
+  ')"
+
+  olddir="$lldir/${ayaml[numba]}-${ayaml[hub]}"
+
+  # update yaml
+  today="$(date '+%Y-%m-%d')"
+  newyaml="$(
+    awk -v nn="$nextnumba" -v today="$today" -v longd="$longd" '
+      fnd == "2" {exit}
+      $1 == "draft:" {$2 = "false"}
+      $1 == "numba:" {$2 = nn}
+      $1 == "date:" {$2 = longd}
+      {print}
+      $1 == "changelog:" {print "  - " today " - published"}
+      $0=="---" {fnd++}
+    ' "$selectedfile"
+  )"
+
+  # undraft
+  newpost="${selectedfile/drafts\/}"
+  rm "$selectedfile"
+  {
+    echo "$newyaml"
+    echo
+    cat "$olddir/README.md"
+  } > "$newpost"
+
+  # move lldirs
+  newdir="$lldir/${nextnumba}-${ayaml[hub]}"
+
+  mv "$olddir" "$newdir"
+  # echo "${newdir}"
+}
+
+edit_letslinux(){
+  [[ ! -f $1 ]] \
+    && select_letslinux \
+    || selectedfile=$1
+
+  subl "$selectedfile"
+}
+
+update_letslinux(){
+  local postfile
+
+  [[ ! -f $1 ]] \
+    && select_letslinux \
+    || selectedfile=$1
+
+  # add body of md to readme
+
+  llreadme="$lldir/${ayaml[numba]}-${ayaml[hub]}/README.md"
+
+  awk '{
+    if (starta != 1 && fnd==2 && $0 !~ /^[[:space:]]*$/) {starta=1}
+    if (starta==1) {print $0}
+    if (fnd != 2 && $0=="---") {fnd++}
+  }' "$selectedfile" > "$llreadme"
+    
+  { 
+    echo
+    echo "* * *"
+    echo
+    eps=()
+    while read line; do eps+=("$line") ; done < \
+      <(ls -t "$llpublicdir/"*.md | grep -v '_index.md')
+    echo "### related videos:"
+    for r in "${relvid[@]}"; do
+      awk -v srch="${r}" '
+
+        $1=="title:" && $2==srch {fnd=1}
+        fnd==1 && $1=="tube:" {
+          id=$2
+          print "[" srch "](https://youtu.be/" id ")  "
+          exit
+        }
+      ' "${eps[@]}"
+    done
+    echo
+    basenote
+  } >> "$llreadme"
+  
+
+}
+
+basenote(){
+echo 'lolban is the output of figlet piped through lolcat. 
+I have a video where i show how it works. That video 
+is called: Let'"'"'s Linux #009: Automatic script creation, 
+and can be found here: https://youtu.be/QGUmMtEnIkI
+
+The figlet font used with lolban is created by xero. 
+It is called: 3d.flf
+And can be found on github:
+https://github.com/xero/figlet-fonts 
+
+You can also see more details about i3ass, my other 
+projects, dotfiles and blog at my homepage:  
+https://budrich.github.io
+
+The terminal font is a modified version of Fixedsys, 
+read more about it on my blog:  
+https://budrich.github.io/blog/fixed_fixedsys/'
+}
+
+new_letslinux(){
+  local name
+
+  name="$(rofi -dmenu -p 'episode name: ')"
+
+  [[ -z $name ]] && exit
+
+  underedname="${name//' '/'_'}"
+  dashedname="${underedname//'_'/'-'}"
+
+  postfile="$lldraftdir/$underedname.md"
+
+  lldir="$lldir/XXX-$dashedname"
+  mkdir -p "$lldir"
+  mkdir -p "$lldraftdir"
+
+  today="$(date '+%Y-%m-%d')"
+  longd="${today}T$(date '+%H:%M:%S')+02:00"
+
+  printf '%s\n' \
+  "---" \
+  "title: $underedname" \
+  "banner: $name" \
+  "date: $longd" \
+  "author: budRich" \
+  "draft: true" \
+  "type: letslinux" \
+  "hub: $dashedname" \
+  "tube: -" \
+  "related: []" \
+  "numba: XXX" \
+  "tags: [video]" \
+  "changelog:" \
+  "  - $today - created" \
+  "notes:" \
+  "---" \
+    > "$postfile"
+  
+  videoinfo >> "$postfile"
+
+  sublime
+  subl "$postfile"
+}
+
+select_letslinux(){
+  local selected
+
+  what=${1:-all}
+
+  shopt -s nullglob
+
+  while read line; do eps+=("$line") ; done < <(
+  { 
+    [[ $what = drafts ]] && ls -t "$lldraftdir/"*.md
+
+    [[ $what = published ]] && ls -t "$llpublicdir/"*.md
+
+    [[ $what = all ]] \
+      && ls -t "$lldraftdir/"*.md "$llpublicdir/"*.md
+
+  } | grep -v '_index.md')
+
+  selected=$(printf '%s\n' "${eps[@]}" \
+    | sed -e 's/^.*\///' -e 's/\.md$//' \
+    | rofi -dmenu -format i -p 'select shownote: '
+  )
+
+  selectedfile="${eps[$selected]}"
+
+  [[ ! -f $selectedfile ]] && exit
+
+  eval "$(awk '
+    $0=="---" {fnd++}
+    fnd==2 {exit}
+    $1 == "related:" {getreal=1}
+    getreal==1 && $1=="-" {
+      $1=""
+      sub(/[[:space:]]*/,"",$0)
+      print "relvid+=(" $0 ")"
+    }
+    $1 ~ /:$/ && $1 != "related:" {
+      getreal=0
+      sub(":","",$1)
+      printf "ayaml[" $1 "]=\""
+      $1=""
+      sub("^[[:space:]]*","",$0)
+      print $0 "\""
+    }
+  ' "$selectedfile")"
+
+}
+
+XERR() {
+    echo "$1" >&2 
+    ( pidof dunst > /dev/null 2>&1 ) && notify-send -u critical "$1"
+    exit "${2:-1}"
+}
+
+printinfo(){
+  case "$1" in
+    m ) printf '%s' "${about}" ;;
+    
+    f ) 
+      printf '%s' "${bouthead}"
+      printf '%s' "${about}"
+      printf '%s' "${boutfoot}"
+    ;;
+
+    ''|* ) 
+      printf '%s' "${about}" | awk '
+         BEGIN{ind=0}
+         $0~/^```/{
+           if(ind!="1"){ind="1"}
+           else{ind="0"}
+           print ""
+         }
+         $0!~/^```/{
+           gsub("[`*]","",$0)
+           if(ind=="1"){$0="   " $0}
+           print $0
+         }
+       '
+    ;;
+  esac
+}
+
+bouthead="
+${NAME^^} 1 ${UPDATED} Linux \"User Manuals\"
+=======================================
+
+NAME
+----
+"
+
+boutfoot="
+AUTHOR
+------
+
+${AUTHOR} <${CONTACT}>
+<https://budrich.github.io>
+
+SEE ALSO
+--------
+
+-
+"
+
+about='
+`shownote` - Manage shownotes for youtube videos
+
+SYNOPSIS
+--------
+
+`shownote` [`-v`|`-h`]  
+
+DESCRIPTION
+-----------
+
+this script should create necessary files and 
+directories for a shownote for youtube.
+
+files and directories for letslinux:
+  post on website ...
+  showdir: ~/git/budlabs/youtube/letslinux/EPISODENUMBER-EPISODENAME/
+  showreadme: $showdir/README.md
+  shownote: $showdir/shownote.txt
+
+post on website is a markdown with a YAML, this is the file that
+gets edited and all other shownote files are generated from this file.
+the YAML of the post have these keys: HUB, which is the name of the directory
+for the episode in ~/git/budlabs/youtube/letslinux/. Related: an array
+of video ID'"'"'s for related videos. VideoID: which contains the ID of the video.
+episode: contains the episode number. Draft: boolean
+shownote is a file consisting of showreadme with stripped
+markdown. and ~/git/budlabs/youtube/letslinux/shownotebase.txt.
+and a list of links to related videos
+
+OPTIONS
+-------
+
+`-v`  
+Show version and exit.
+
+`-h`  
+Show help and exit.
+
+
+DEPENDENCIES
+------------
+
+i3gw
+'
+
+if [ "$1" = "md" ]; then
+  printinfo m
+  exit
+elif [ "$1" = "man" ]; then
+  printinfo f
+  exit
+else
+  main "${@}"
+fi
+TYPE=${1:-letslinux}
+
+
