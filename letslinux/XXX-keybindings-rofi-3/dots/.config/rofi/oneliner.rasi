@@ -1,0 +1,63 @@
+/**
+* Oneliner - by budRich 2018
+* Based on dmenu theme by Dave Davenport
+*/
+
+@import "globalcolors.rasi"
+
+* {
+  background-color:    @act1;
+  border-color:        @act1;
+  text-color:          @act2;
+  font:                @font1;
+  selbg:               @act2;
+  selfg:               @act3;
+  promptbg:            @act2;
+  promptfg:            @act3;
+}
+
+#window {
+  anchor:     north west;
+  location:   north west;
+  width:      100%;
+  height:     20px;
+  padding:    2px;
+  children:   [ horibox ];
+  x-offset:   0px;
+  y-offset:   0px;
+}
+
+#horibox {
+  orientation: horizontal;
+  children:   [ prompt, entry, listview ];
+}
+
+#listview {
+  layout:     horizontal;
+  spacing:    5px;
+  lines:      50;
+  dynamic:    true;
+}
+
+#entry {
+  expand:     false;
+  width:      10em;
+}
+
+
+#element {
+  padding: 0px 2px;
+}
+
+#element selected {
+  text-color: @selfg;
+  background-color: @selbg;
+}
+
+#prompt {
+  text-color: @promptfg;
+  background-color: @promptbg;
+}
+
+
+// syntax:ssDslash

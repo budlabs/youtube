@@ -1,0 +1,10 @@
+* {
+act1: #8888c8;
+act2: #FFFFE8;
+act3: #424242;
+fg: #988d6d;
+bg: #FFFFD8;
+red: #b85c57;
+font1: "FixedFixedsys 12";
+}
+
