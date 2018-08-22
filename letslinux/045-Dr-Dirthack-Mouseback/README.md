@@ -1,4 +1,6 @@
-# Doctor Dirthack prescribes: Mouseback
+These are the shownotes for the video:  
+# [Doctor Dirthack prescribes: Mouseback][vidlink]
+
 
 Bind the backbutton on the mouse (`Button8`) to <kbd>BackSpace</kbd> to be able to delete text only by using the mouse.  
 
@@ -6,6 +8,10 @@ Bind the backbutton on the mouse (`Button8`) to <kbd>BackSpace</kbd> to be able 
 
 [xdotool] - to send the <kbd>BackSpace</kbd> key.  
 [sxhkd] - If you don't have a proper hotkey daemon (*i3 has one built in*), you can use this.  
+
+[vidlink]: https://youtu.be/ruJIsjm465Y
+[xdotool]: https://github.com/jordansissel/xdotool
+[sxhkd]: https://github.com/baskerville/sxhkd
 
 ## settings:
 
