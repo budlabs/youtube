@@ -1,22 +1,4 @@
-```
-                                    ██                                        
-                                   ░██                 █████                  
- ██████████   ██████  ███████      ░██  ██████        ██░░░██  █████  ███████ 
-░░██░░██░░██ ██░░░░██░░██░░░██  ██████ ██░░░░██      ░██  ░██ ██░░░██░░██░░░██
- ░██ ░██ ░██░██   ░██ ░██  ░██ ██░░░██░██   ░██      ░░██████░███████ ░██  ░██
- ░██ ░██ ░██░██   ░██ ░██  ░██░██  ░██░██   ░██       ░░░░░██░██░░░░  ░██  ░██
- ███ ░██ ░██░░██████  ███  ░██░░██████░░██████  █████  █████ ░░██████ ███  ░██
-░░░  ░░  ░░  ░░░░░░  ░░░   ░░  ░░░░░░  ░░░░░░  ░░░░░  ░░░░░   ░░░░░░ ░░░   ░░ 
-                            ██                           ██   ██              
-                           ░██                  █████   ░██  ░██              
-  █████  ██████  ██████   ██████  █████        ██░░░██ ██████░██  ██          
- ██░░░██░░██░░█ ░░░░░░██ ░░░██░  ██░░░██      ░██  ░██░░░██░ ░██ ██           
-░███████ ░██ ░   ███████   ░██  ░███████      ░░██████  ░██  ░████            
-░██░░░░  ░██    ██░░░░██   ░██  ░██░░░░        ░░░░░██  ░██  ░██░██           
-░░██████░███   ░░████████  ░░██ ░░██████ █████  █████   ░░██ ░██░░██          
- ░░░░░░ ░░░     ░░░░░░░░    ░░   ░░░░░░ ░░░░░  ░░░░░     ░░  ░░  ░░           
-```
-
+# mondo setup
 
 **mondos** settings are stored in a directory called MONDO_DIR in the documentation (`mondo -h`). By default this directory is: `~/.config/mondo` but it can be changed with the environment variable.  
 
@@ -43,10 +25,7 @@ https://youtu.be/37jo_x6bXBk
 
 
 You can find **mondo** on github:  
-https://github.com/budRich/mondo  
-
-You can see my personal mondo settings in my *dots* repo on github:  
-https://github.com/budRich/dots/tree/master/mondo  
+https://github.com/budlabs/mondo  
 
 The color-themes used in this video is "gruvbox" and themes from the *unixporn colorcontest*.
 

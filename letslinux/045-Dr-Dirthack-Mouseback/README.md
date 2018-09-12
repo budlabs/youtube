@@ -60,11 +60,3 @@ The figlet font used with lolban is created by xero.
 It is called: 3d.flf
 And can be found on github:
 https://github.com/xero/figlet-fonts 
-
-You can also see more details about i3ass, my other 
-projects, dotfiles and blog at my homepage:  
-https://budrich.github.io
-
-The terminal font is a modified version of Fixedsys, 
-read more about it on my blog:  
-https://budrich.github.io/blog/fixed_fixedsys/

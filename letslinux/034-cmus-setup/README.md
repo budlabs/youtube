@@ -1,14 +1,4 @@
-```
-                                                         ██                  
-                                                        ░██           ██████ 
-  █████  ██████████  ██   ██  ██████    ██████  █████  ██████ ██   ██░██░░░██
- ██░░░██░░██░░██░░██░██  ░██ ██░░░░    ██░░░░  ██░░░██░░░██░ ░██  ░██░██  ░██
-░██  ░░  ░██ ░██ ░██░██  ░██░░█████   ░░█████ ░███████  ░██  ░██  ░██░██████ 
-░██   ██ ░██ ░██ ░██░██  ░██ ░░░░░██   ░░░░░██░██░░░░   ░██  ░██  ░██░██░░░  
-░░█████  ███ ░██ ░██░░██████ ██████    ██████ ░░██████  ░░██ ░░██████░██     
- ░░░░░  ░░░  ░░  ░░  ░░░░░░ ░░░░░░    ░░░░░░   ░░░░░░    ░░   ░░░░░░ ░░      
-```
-
+# cmus setup
 
 ## adding music to cmus
 press `:` to enter command mode then:  
@@ -61,8 +51,7 @@ https://wiki.archlinux.org/index.php/Cmus
 https://cmus.github.io  
 
 In the video I use my scripts: **i3run** and **i3fyra**, they are available in the **i3ass** suit:  
-https://github.com/budRich/i3ass  
+https://github.com/budlabs/i3ass  
 
-I also use **getkeys** to get a clean output of **xev**.  
-https://github.com/budRich/scripts/tree/master/misc/getkeys  
+
 https://www.x.org/archive/X11R7.7/doc/man/man1/xev.1.xhtml
