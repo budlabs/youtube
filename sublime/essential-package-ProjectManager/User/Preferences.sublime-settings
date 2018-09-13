@@ -1,0 +1,9 @@
+{
+	"close_windows_when_empty": false,
+	"color_scheme": "Packages/Color Scheme - Default/Breakers.sublime-color-scheme",
+	"font_size": 18,
+	"ignored_packages":
+	[
+		"Vintage"
+	]
+}

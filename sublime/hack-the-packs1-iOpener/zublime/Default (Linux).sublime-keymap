@@ -1,0 +1,12 @@
+[
+  { 
+    "keys": ["alt+p"],  
+    "command": "open_file", 
+    "args": {"file": "${project}"} 
+  },
+
+  { 
+    "keys": ["alt+w"],  
+    "command": "close_workspace", 
+  },
+]

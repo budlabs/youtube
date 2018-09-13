@@ -1,0 +1,26 @@
+{
+  "folders":
+  [
+    {
+      "path": "~/.config/sublime-text-3/Packages/zublime",
+      "name": "settings - user"
+    },
+    {
+      "path": "~/.config/sublime-text-3/Packages/User",
+      "name": "settings - packages"
+    },
+    {
+      "path": "~/.config/sublime-text-3/Installed Packages",
+      "name": "package - packed"
+    },
+    {
+      "path": "~/.config/sublime-text-3/Packages",
+      "name": "package - extracted",
+      "folder_exclude_patterns": ["User","zublime"]
+    },
+    {
+      "path": "/opt/sublime_text/Packages",
+      "name": "package - opt"
+    }
+  ]
+}

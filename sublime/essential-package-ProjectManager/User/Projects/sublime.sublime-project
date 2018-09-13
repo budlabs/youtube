@@ -1,0 +1,42 @@
+{
+	"folders":
+	[
+		{
+			"name": "settings - user",
+			"path": "/home/bud/.config/sublime-text-3/Packages/zublime"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"Package Control.*-ca*",
+				"Package Control.last-run"
+			],
+			"folder_exclude_patterns":
+			[
+				"Package Control.cache","Projects"
+			],
+			"name": "settings - packages",
+			"path": "/home/bud/.config/sublime-text-3/Packages/User"
+		},
+		{
+			"name": "package - packed",
+			"path": "/home/bud/.config/sublime-text-3/Installed Packages"
+		},
+		{
+			"name": "Projects",
+			"path": "/home/bud/.config/sublime-text-3/Packages/User/Projects"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"User"
+			],
+			"name": "package - extracted",
+			"path": "/home/bud/.config/sublime-text-3/Packages"
+		},
+		{
+			"name": "package - opt",
+			"path": "/opt/sublime_text/Packages"
+		}
+	]
+}
