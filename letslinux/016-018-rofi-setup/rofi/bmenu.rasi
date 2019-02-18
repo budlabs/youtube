@@ -4,7 +4,7 @@
  * Copyright: Dave Davenport
  */
 
-@import "globals.rasi"
+@import "globalsa.rasi"
 
 * {
     background-color:      @fg1;
@@ -13,8 +13,7 @@
     font:                  @font1;
 }
 
-configuration {
-}
+
 
 #window {
     anchor:     north;
@@ -47,4 +46,3 @@ configuration {
     background-color: @bg1;
     text-color: @accent;
 }
-
