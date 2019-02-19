@@ -1,9 +1,9 @@
 * {
-act1: #F2974C;
-act2: #FFE6B7;
+act1: #5A3467;
+act2: #FFF6E4;
 act3: #241708;
 fg: #241708;
-bg: #F2DAAE;
+bg: #F2E9D8;
 red: #B85C57;
 font1: "FixedFixedsys 12";
 }
