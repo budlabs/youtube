@@ -13,10 +13,10 @@ pgrep -f "thunarIPC.py" && pkill -f "thunarIPC.py"
 # use the command below to start the script in the 
 # background and send output to /dev/null
 
-# thunarIPC.py > /dev/null 2>&1 &
+thunarIPC.py > /dev/null 2>&1 &
 
 # use the command below to start the script in the 
 # foreground and keep output (good when debugging)
 # in a terminal
 
-thunarIPC.py
+# thunarIPC.py

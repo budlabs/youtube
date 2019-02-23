@@ -38,11 +38,11 @@ def windownotify(i3, event):
         thunar(event)
 
 
-def set_floating(i3, event):
-    event.container.command('floating enable')
+# def set_floating(i3, event):
+#     event.container.command('floating enable')
 
 
-i3.on('window::new', set_floating)
+# i3.on('window::new', set_floating)
 
 
 i3.on('window::title', windownotify)
