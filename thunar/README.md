@@ -8,8 +8,10 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar #03] using i3ipc-python to update tab title [python][i3]](https://youtu.be/yPFciqUtzo8) | 17:27 | [03-listening] | use i3ipc-python to catch window events and change title of the tabs |
 |[[Thunar 3.5] improved ipc [i3ipc-python]](https://youtu.be/bUU9n4xs8QM) | 15:09 | [03.5-betteripc] | de-bloating of the ipc script |
 |[[Thunar IV] enable hidden settings [XFCE]](https://youtu.be/sOb6JziHjC4) | 09:56 | [04-hiddensettings] | enable hidden thunar settings with the xfce4-settings-editor |
+|[[Thunar 5.1] creating dir-rules file](https://youtu.be/beaa7lUurkg) | 28:29 | [05.1-layout-thefile] | create the dir-rules file |
 
 
+[05.1-layout-thefile]: https://github.com/budlabs/youtube/tree/master/thunar/05.1-layout-thefile
 [04-hiddensettings]: https://github.com/budlabs/youtube/tree/master/thunar/04-hiddensettings
 [03.5-betteripc]: https://github.com/budlabs/youtube/tree/master/thunar/03.5-betteripc
 [01-groundzero]: https://github.com/budlabs/youtube/tree/master/thunar/01-groundzero
