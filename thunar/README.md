@@ -11,8 +11,10 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 5.1] creating dir-rules file](https://youtu.be/beaa7lUurkg) | 28:29 | [05.1-layout-thefile] | create the dir-rules file |
 |[[Thunar 5.2] layout rule parser [awk]](https://youtu.be/lRvOpCRutDo) | 20:08 | [05.2-layout-the-parser] | create the parser and define syntax for the layout rules file |
 |[[Thunar 5.3] apply layout apply layout [xdotool]](https://youtu.be/-Gb-nYsIbiY) | 10:08 | [05.3-layout-the-updater] | apply layout with xdotool |
+|[[Thunar 5.4] smarter layout [xdotool][i3ipc-python][bash]](https://youtu.be/orzFgO4CU88) | 17:35 | [05.4-layout-smart] | improve autolayout by changing and comparing the instance name against the rules before updating |
 
 
+[05.4-layout-smart]: https://github.com/budlabs/youtube/tree/master/thunar/05.4-layout-smart
 [05.3-layout-the-updater]: https://github.com/budlabs/youtube/tree/master/thunar/05.3-layout-the-updater
 [05.2-layout-the-parser]: https://github.com/budlabs/youtube/tree/master/thunar/05.2-layout-the-parser
 [05.1-layout-thefile]: https://github.com/budlabs/youtube/tree/master/thunar/05.1-layout-thefile
