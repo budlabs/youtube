@@ -13,9 +13,11 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 5.3] apply layout apply layout [xdotool]](https://youtu.be/-Gb-nYsIbiY) | 10:08 | [05.3-layout-the-updater] | apply layout with xdotool |
 |[[Thunar 5.4] smarter layout [xdotool][i3ipc-python][bash]](https://youtu.be/orzFgO4CU88) | 17:35 | [05.4-layout-smart] | improve autolayout by changing and comparing the instance name against the rules before updating |
 |[[Thunar 6.1] launch for excellence[i3ipc-python]](https://youtu.be/4FpOGSO797w) | 19:26 | [06.1-launch-title-format] | improve i3ipc-python script to handle new thunar windows better |
-|[[Thunar 6.2] fixed layouts [bash][xfce]](https://youtu.be/lDOdKulJNGw) | 19:26 | [06.2-fixed-layout] | apply rules before we create a new window |
+|[[Thunar 6.2] fixed layouts [bash][xfce]](https://youtu.be/lDOdKulJNGw) | 10:05 | [06.2-fixed-layout] | apply rules before we create a new window |
+|[[Thunar 6.3] on the right path [bash][i3ass][i3get]](https://youtu.be/J8f2d0rBMzs) | 10:05 | [06.3-open-the-path] | add path argument to launchfm |
 
 
+[06.3-open-the-path]: https://github.com/budlabs/youtube/tree/master/thunar/06.3-open-the-path
 [06.2-fixed-layout]: https://github.com/budlabs/youtube/tree/master/thunar/06.2-fixed-layout
 [06.1-launch-title-format]: https://github.com/budlabs/youtube/tree/master/thunar/06.1-launch-title-format
 [05.4-layout-smart]: https://github.com/budlabs/youtube/tree/master/thunar/05.4-layout-smart
