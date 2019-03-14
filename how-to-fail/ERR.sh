@@ -37,7 +37,7 @@ ERR() {
     -w )
       shift
 
-      if [[ -t 1 ]]; then
+      if [[ -t 2 ]]; then
         (>&2 echo "[${YELLOW}WARNING${NORMAL}]" "$*")
       else
         notify-send "[WARNING] $*"
@@ -48,7 +48,7 @@ ERR() {
     -s )
       shift
 
-      if [[ -t 1 ]]; then
+      if [[ -t 2 ]]; then
         (>&2 echo "[${GREEN}SUCCESS${NORMAL}]" "$*")
       else
         notify-send -u low "[SUCCESS] $*"
@@ -58,7 +58,7 @@ ERR() {
     -e )
       shift
 
-      if [[ -t 1 ]]; then
+      if [[ -t 2 ]]; then
         (>&2 echo "[${RED}ERROR${NORMAL}]" "$*")
       else
         notify-send -u critical "[ERROR] $*"
@@ -70,7 +70,7 @@ ERR() {
     -m )
       shift
 
-      if [[ -t 1 ]]; then
+      if [[ -t 2 ]]; then
         (>&2 echo "$*")
       else
         notify-send "$*"
@@ -79,7 +79,7 @@ ERR() {
 
     *  )
 
-      if [[ -t 1 ]]; then
+      if [[ -t 2 ]]; then
         (>&2 echo "$*")
       else
         notify-send "$*"
