@@ -1,10 +1,10 @@
 * {
-act1: #21B8C7;
-act2: #F6F1E1;
-act3: #100A14;
-fg: #100A14;
-bg: #EFEAE9;
-red: #F2241F;
+act1: #5A3467;
+act2: #FFF6E4;
+act3: #241708;
+fg: #241708;
+bg: #F2E9D8;
+red: #B85C57;
 font1: "FixedFixedsys 12";
 }
 
