@@ -16,8 +16,10 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 6.2] fixed layouts [bash][xfce]](https://youtu.be/lDOdKulJNGw) | 10:05 | [06.2-fixed-layout] | apply rules before we create a new window |
 |[[Thunar 6.3] on the right path [bash][i3ass][i3get]](https://youtu.be/J8f2d0rBMzs) | 34:54 | [06.3-open-the-path] | add path argument to launchfm |
 |[[Thunar 6.4] guess the window [bash][i3ass][i3viswiz][i3get]](https://youtu.be/EcwC2_c4XQM) | 25:20 | [06.4-window-guessing] | add AI to make a qualified guess to which window to focus if no path is provided to launchfm, and refactor the script with functions |
+|[[Thunar 7.1] fix fixed width collumns](https://youtu.be/X0D4Bgnk7AQ) | 15:00 | [07.1-fixed-collumns] | make sure thunar starts with sober collumn width |
 
 
+[07.1-fixed-collumns]: https://github.com/budlabs/youtube/tree/master/thunar/07.1-fixed-collumns
 [06.4-window-guessing]: https://github.com/budlabs/youtube/tree/master/thunar/06.4-window-guessing
 [06.3-open-the-path]: https://github.com/budlabs/youtube/tree/master/thunar/06.3-open-the-path
 [06.2-fixed-layout]: https://github.com/budlabs/youtube/tree/master/thunar/06.2-fixed-layout
