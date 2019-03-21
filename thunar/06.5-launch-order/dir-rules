@@ -1,0 +1,41 @@
+# Rules:
+# -------------------------------------
+# t|n|s - sort by time or name or size
+# i|l   - icon or list
+# [1-7] - iconsize
+# a|d   - ascending (A before B) or decending 
+#         (New before old) sort
+
+#  DIR-PATTERN  |  RULES  | TITLE-FORMAT
+#---------------|---------|--------------
+~/git                  isa
+~/bin                  itd
+~/pix                  lta
+~                      ina
+.                      lna
+
+
+
+# old rules
+
+# ~/pix/wp           tdiu5    wap
+# ~/pix/nwp          tdiu7    nwp
+# ~/pix/ss           tdiu7   
+# ~/pix/d            tdiu7   
+# ~/pix/r            tdiu6    
+# ~/pix/folk.*       naiu6    
+# ~/pix/pwp          tdiu6    
+# ~/vid/y            tdis7    yov
+# ~/snd/y            tdis7    yos
+# ~/gms              naiu7    gms
+# ~/snd/pod          tdiu7    pod
+# ~/vid/bud          tdis7   
+# ~/vid/s.*          naiu7   
+# ~/vid/.*           nais7   
+# ~/vid/bud          tdiu7   
+# ~/dwn              tdlu4    dwn
+# ~/dwn.*            tdlu4   
+# ^~$                naiu6   
+# .                  nalu4    
+
+# syntax:ssHash
