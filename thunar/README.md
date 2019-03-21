@@ -12,6 +12,7 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 5.2] layout rule parser [awk]](https://youtu.be/lRvOpCRutDo) | 20:08 | [05.2-layout-the-parser] | create the parser and define syntax for the layout rules file |
 |[[Thunar 5.3] apply layout apply layout [xdotool]](https://youtu.be/-Gb-nYsIbiY) | 10:08 | [05.3-layout-the-updater] | apply layout with xdotool |
 |[[Thunar 5.4] smarter layout [xdotool][i3ipc-python][bash]](https://youtu.be/orzFgO4CU88) | 17:35 | [05.4-layout-smart] | improve autolayout by changing and comparing the instance name against the rules before updating |
+|[[Thunar 5.5] adding sort mode rules [bash]](https://youtu.be/9jiv9myBGiY) | 25:00 | [05.5-sorting-layout] | add sorting to the dirrules and updatefm |
 |[[Thunar 6.1] launch for excellence[i3ipc-python]](https://youtu.be/4FpOGSO797w) | 19:26 | [06.1-launch-title-format] | improve i3ipc-python script to handle new thunar windows better |
 |[[Thunar 6.2] fixed layouts [bash][xfce]](https://youtu.be/lDOdKulJNGw) | 10:05 | [06.2-fixed-layout] | apply rules before we create a new window |
 |[[Thunar 6.3] on the right path [bash][i3ass][i3get]](https://youtu.be/J8f2d0rBMzs) | 34:54 | [06.3-open-the-path] | add path argument to launchfm |
@@ -19,6 +20,7 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 7.1] fix fixed width collumns](https://youtu.be/X0D4Bgnk7AQ) | 15:00 | [07.1-fixed-collumns] | make sure thunar starts with sober collumn width |
 
 
+[05.5-sorting-layout]: https://github.com/budlabs/youtube/tree/master/thunar/05.5-sorting-layout
 [07.1-fixed-collumns]: https://github.com/budlabs/youtube/tree/master/thunar/07.1-fixed-collumns
 [06.4-window-guessing]: https://github.com/budlabs/youtube/tree/master/thunar/06.4-window-guessing
 [06.3-open-the-path]: https://github.com/budlabs/youtube/tree/master/thunar/06.3-open-the-path
