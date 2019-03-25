@@ -19,8 +19,10 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 6.4] guess the window [bash][i3ass][i3viswiz][i3get]](https://youtu.be/EcwC2_c4XQM) | 25:20 | [06.4-window-guessing] | add AI to make a qualified guess to which window to focus if no path is provided to launchfm, and refactor the script with functions |
 |[[Thunar 7.1] fix fixed width collumns](https://youtu.be/X0D4Bgnk7AQ) | 15:00 | [07.1-fixed-collumns] | make sure thunar starts with sober collumn width |
 |[HOW TO PRESS THE POWER BUTTON ON A COMPUTER [thunar 6.5] [bash]](https://youtu.be/IcpuxSyN3Sc) | 60:00 | [06.5-launch-order] | refactoring and better rule parsing in launchfm |
+|[3 CUSTOM ACTIONS IS MORE THEN  6 KEYBINDINGS](https://youtu.be/-N63T0Wfz-E) | 19:05 | [08.1-cusomt-actions1] | add some custom actions to toggle the layout and sort of a thunar window |
 
 
+[08.1-cusomt-actions1]: https://github.com/budlabs/youtube/tree/master/thunar/08.1-cusomt-actions1
 [06.5-launch-order]: https://github.com/budlabs/youtube/tree/master/thunar/06.5-launch-order
 [05.5-sorting-layout]: https://github.com/budlabs/youtube/tree/master/thunar/05.5-sorting-layout
 [07.1-fixed-collumns]: https://github.com/budlabs/youtube/tree/master/thunar/07.1-fixed-collumns
