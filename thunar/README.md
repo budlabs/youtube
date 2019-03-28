@@ -20,8 +20,10 @@ this directory contains shownotes, scripts and config files used in the video se
 |[[Thunar 7.1] fix fixed width collumns](https://youtu.be/X0D4Bgnk7AQ) | 15:00 | [07.1-fixed-collumns] | make sure thunar starts with sober collumn width |
 |[HOW TO PRESS THE POWER BUTTON ON A COMPUTER [thunar 6.5] [bash]](https://youtu.be/IcpuxSyN3Sc) | 60:00 | [06.5-launch-order] | refactoring and better rule parsing in launchfm |
 |[3 CUSTOM ACTIONS IS MORE THEN  6 KEYBINDINGS](https://youtu.be/-N63T0Wfz-E) | 19:05 | [08.1-cusomt-actions1] | add some custom actions to toggle the layout and sort of a thunar window |
+|[INCLUDE AWK LIBRARY FILES](https://youtu.be/MjoY_pMg_eI) | 24:17 | [08.2-save-rules] | save layout to dir-rules with a keybinding |
 
 
+[08.2-save-rules]: https://github.com/budlabs/youtube/tree/master/thunar/08.2-save-rules
 [08.1-cusomt-actions1]: https://github.com/budlabs/youtube/tree/master/thunar/08.1-cusomt-actions1
 [06.5-launch-order]: https://github.com/budlabs/youtube/tree/master/thunar/06.5-launch-order
 [05.5-sorting-layout]: https://github.com/budlabs/youtube/tree/master/thunar/05.5-sorting-layout
