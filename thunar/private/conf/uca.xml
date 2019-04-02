@@ -1,0 +1,235 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon></icon>
+	<name>set-wallpaper</name>
+	<unique-id>1553339711883149-3</unique-id>
+	<command>feh --bg-max %f</command>
+	<description></description>
+	<patterns>*.png;*.jpg</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>toggle-layout</name>
+	<unique-id>1553352990085284-9</unique-id>
+	<command>actionfm toggle-layout</command>
+	<description>toggle between listview and iconview</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>toggle-order</name>
+	<unique-id>1553353625075161-10</unique-id>
+	<command>actionfm toggle-order</command>
+	<description>toggle between asc desc sort order</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>toggle-sort</name>
+	<unique-id>1553353849302874-11</unique-id>
+	<command>actionfm toggle-sort</command>
+	<description>toggle sort by name/time</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>save-layout</name>
+	<unique-id>1553517252059973-8</unique-id>
+	<command>actionfm save-layout %d</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>display-layout</name>
+	<unique-id>1553597060024351-9</unique-id>
+	<command>actionfm display-layout</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>rename-file</name>
+	<unique-id>1553598026233977-10</unique-id>
+	<command>actionfm rename-file %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>delete-files</name>
+	<unique-id>1553633661726256-13</unique-id>
+	<command>actionfm delete-files %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-menu</name>
+	<unique-id>1553637527924865-16</unique-id>
+	<command>actionfm file-menu %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-copy</name>
+	<unique-id>1553697350229847-2</unique-id>
+	<command>actionfm file-copy %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-soft</name>
+	<unique-id>1553697575231231-3</unique-id>
+	<command>actionfm file-soft %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-hard</name>
+	<unique-id>1553697593419297-4</unique-id>
+	<command>actionfm file-hard %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-move</name>
+	<unique-id>1553697611494986-5</unique-id>
+	<command>actionfm file-move %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>file-ulf</name>
+	<unique-id>1553698636853987-6</unique-id>
+	<command>actionfm file-ulf %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>open-terminal</name>
+	<unique-id>1553700054844131-7</unique-id>
+	<command>actionfm open-terminal</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>display-path</name>
+	<unique-id>1553702606088898-8</unique-id>
+	<command>actionfm display-path</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>add-bookmark</name>
+	<unique-id>1553705960844702-9</unique-id>
+	<command>actionfm add-bookmark</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

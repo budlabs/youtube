@@ -1,0 +1,26 @@
+# Rules:
+# -------------------------------------
+# t|n|s - sort by time or name or size
+# i|l   - icon or list
+# [1-7] - iconsize
+# a|d   - ascending (A before B) or decending 
+#         (New before old) sort
+
+#  DIR-PATTERN                          | RULES
+#---------------------------------------|-------
+~/pix/.*                                  itd
+~/vid/bud                                 itd
+~/git/clones                              ltd
+~/tmp                                     ltd
+~/vid/y/tos                               ita
+~/bin                                     lnd
+~/dot/.*                                  ind
+~/dot                                     lna
+~/dot/qt5ct                               lnd
+~/vid                                     itd
+~                                         ina
+~/vid/y/mus                               itd
+~/git/lab                                 ltd
+.                                         lna
+
+# syntax:ssHash
