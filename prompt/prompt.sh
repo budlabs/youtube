@@ -40,7 +40,10 @@ prompt_generator() {
     # the shells main IFS
     local IFS='/'
     
-    # trim $HOME from the beginning (#) of PWD
+    # replace homde dir with literal ~ in PWD loop
+    # the path and use the first alpha/numeric
+    # character OR the first character of each
+    # directory.
     for d in ${PWD/~/'~'}; do
       [[ $d =~ [[:alnum:]] ]]         \
         && ps+="${BASH_REMATCH[0]}/"  \

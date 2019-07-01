@@ -1,6 +1,6 @@
 ![screenshot](screenshot.png)  
  
-youtube playlist: [making a prompt with bud]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLt6-rPpOpkb1jlQc2JJMrXs-qi_wvSL2J" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
@@ -31,4 +31,4 @@ DEBUG trap:
 tput:  
 <http://www.linuxcommand.org/lc3_adv_tput.php>    
 
-[making a prompt with bud]: https://www
+[making a prompt with bud]: https://www.youtube.com/playlist?list=PLt6-rPpOpkb1jlQc2JJMrXs-qi_wvSL2J
