@@ -1,6 +1,6 @@
 ![screenshot](screenshot.png)  
  
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLt6-rPpOpkb1jlQc2JJMrXs-qi_wvSL2J" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+All videos related to prompt customization can be found in the playlist: [making a prompt with bud]
 
 ---
 
