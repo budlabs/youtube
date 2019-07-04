@@ -92,18 +92,18 @@ PROMPT_COMMAND=prompt_generator
 # outside of the function, it will make the prompt
 # snappier and the timing more accurate
 
-# tput is slower then hard coding the color-values,
+# tput is slower then hardcoding the colorvalues,
 # but much easier to maintain:
 
-# C_RED="$(tput setaf 1)"
-# C_GREEN="$(tput setaf 2)"
-# C_YELLOW="$(tput setaf 3)"
-# C_BLUE="$(tput setaf 4)"
-# C_MAGENTA="$(tput setaf 5)"
-# C_CYAN="$(tput setaf 6)"
-# C_DEFAULT="$(tput sgr0)"
+# C_RED="\[$(tput setaf 1)\]"
+# C_GREEN="\[$(tput setaf 2)\]"
+# C_YELLOW="\[$(tput setaf 3)\]"
+# C_BLUE="\[$(tput setaf 4)\]"
+# C_MAGENTA="\[$(tput setaf 5)\]"
+# C_CYAN="\[$(tput setaf 6)\]"
+# C_DEFAULT="\[$(tput sgr0)\]"
 
-# fastest, but inconvenient:
+# fastest, but a bit inconvenient:
 
 # C_DEFAULT="\[\033[m\]"
 # C_RED="\[\033[31m\]"
@@ -117,16 +117,16 @@ PROMPT_COMMAND=prompt_generator
 # since it sets the variables only when they are
 # undefined:
 
-: "${C_RED:=$(tput setaf 1)}" 
-: "${C_GREEN:=$(tput setaf 2)}" 
-: "${C_YELLOW:=$(tput setaf 3)}" 
-: "${C_BLUE:=$(tput setaf 4)}" 
-: "${C_MAGENTA:=$(tput setaf 5)}" 
-: "${C_CYAN:=$(tput setaf 6)}" 
-: "${C_DEFAULT:=$(tput sgr0)}"
+: "${C_RED:=\[$(tput setaf 1)\]}" 
+: "${C_GREEN:=\[$(tput setaf 2)\]}" 
+: "${C_YELLOW:=\[$(tput setaf 3)\]}" 
+: "${C_BLUE:=\[$(tput setaf 4)\]}" 
+: "${C_MAGENTA:=\[$(tput setaf 5)\]}" 
+: "${C_CYAN:=\[$(tput setaf 6)\]}" 
+: "${C_DEFAULT:=\[$(tput sgr0)\]}"
 
 # code below is actually slower then
-# hard coded direct declarations
+# hardcoded direct declarations
 
 # : "${C_DEFAULT:=\[\033[m\]}"
 # : "${C_RED:=\[\033[31m\]}"
@@ -135,5 +135,3 @@ PROMPT_COMMAND=prompt_generator
 # : "${C_BLUE:=\[\033[34m\]}"
 # : "${C_MAGENTA:=\[\033[35m\]}"
 # : "${C_CYAN:=\[\033[36m\]}"
-
-# syntax:bash
